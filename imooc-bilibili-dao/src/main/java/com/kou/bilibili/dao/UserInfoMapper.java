@@ -1,7 +1,7 @@
 package com.kou.bilibili.dao;
 
-import com.kou.bilibili.domian.entity.UserInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.kou.bilibili.domian.entity.UserInfoEntity;
 
 /**
 * @author Kou
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @createDate 2022-07-06 16:00:09
 * @Entity com.kou.bilibili.domian.entity.UserInfo
 */
-public interface UserInfoMapper extends BaseMapper<UserInfo> {
+public interface UserInfoMapper extends BaseMapper<UserInfoEntity> {
 
 }
 
