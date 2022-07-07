@@ -15,4 +15,11 @@ public interface UserService extends IService<UserEntity> {
      * @param user 用户注册信息
      */
     void addUser(UserEntity user);
+
+    /**
+     * 用户登录
+     *
+     * @param user
+     */
+    String login(UserEntity user);
 }
