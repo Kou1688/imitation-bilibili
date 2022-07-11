@@ -8,6 +8,10 @@ package com.kou.bilibli.constants;
  */
 public interface Constants {
     /**
+     * Token
+     */
+    String TOKEN = "token";
+    /**
      * utf编码
      */
     String CHARACTER_SET = "UTF-8";

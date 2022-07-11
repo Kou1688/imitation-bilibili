@@ -21,5 +21,5 @@ public interface UserService extends IService<UserEntity> {
      *
      * @param user
      */
-    String login(UserEntity user);
+    String login(UserEntity user) throws Exception;
 }

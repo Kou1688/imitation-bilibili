@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
@@ -36,6 +37,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity>
     private UserInfoMapper userInfoMapper;
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void addUser(UserEntity request) {
         //判空
         if (StringUtils.isBlank(request.getPhone())) {
@@ -60,7 +62,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity>
     }
 
     @Override
-    public String login(UserEntity request) {
+    public String login(UserEntity request) throws Exception {
         //判空
         if (StringUtils.isBlank(request.getPhone())) {
             log.error("登录手机号不能为空");
@@ -92,7 +94,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity>
      * @param userInfo 用户信息
      */
     private void buildAddUserInfoEntity(UserEntity user, UserInfoEntity userInfo) {
-        userInfo.setUserid(user.getId());
+        userInfo.setUserId(user.getId());
         userInfo.setBirth(Constants.DEFAULT_BIRTH);
         userInfo.setGender(Constants.GENDER_UNKNOWN);
         userInfo.setNick(Constants.DEFAULT_NICK);
